@@ -1,6 +1,6 @@
 require File.join(File.dirname(__FILE__), '..', 'rule')
 
-class NumberRules < Rule
+class MathRules < Rule
 
   def initialize text
     super text
@@ -16,6 +16,15 @@ class NumberRules < Rule
     add :frac_3, # replaces 3/4
         :pattern => /(\D)3\/4(\D)/,
         :replacement => '\1&frac34;\2'
+
+    add :not_equal,
+        :pattern => /!=/,
+        :replacement => '&#8800;'
+
+    add :plus_minus,
+        :pattern => /\+-/,
+        :replacement => '&plusmn;'
+
   end
 
 end
