@@ -1,6 +1,6 @@
-require File.join(File.dirname(__FILE__), '..', 'tof')
+require File.join(File.dirname(__FILE__), '..', 'rule')
 
-class Dash < Tof
+class DashRules < Rule
 
   def initialize text
     super text

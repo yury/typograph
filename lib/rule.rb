@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/tool'
 
-class Tof
+class Rule
 
   NBSP = "&nbsp;"
 
