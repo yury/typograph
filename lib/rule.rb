@@ -1,5 +1,6 @@
 require File.dirname(__FILE__) + '/tool'
 
+# base class for all rules in typograph
 class Rule
 
   NBSP = "&nbsp;"
