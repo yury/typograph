@@ -1,5 +1,5 @@
 require "test/unit"
-require "../../lib/tof/dash"
+require "../../lib/rules/dash"
 
 class DashTest < Test::Unit::TestCase
 

@@ -1,6 +1,4 @@
-require 'rubygems'
 require File.dirname(__FILE__) + '/tool'
-require "activesupport"
 
 class Tof
 
@@ -11,11 +9,11 @@ class Tof
   def initialize text
     @text = text
     @disabled = false
-    @opts = ActiveSupport::OrderedHash.new
+    @rules = []
   end
 
   def add name, opts = {}
-    @opts[name] = opts
+    @rules << {:name => name, :opts => opts}
   end
 
   def pre_parse
@@ -27,7 +25,8 @@ class Tof
 
     self.pre_parse
 
-    @opts.each_value do |opts|
+    @rules.each do |rule|
+      opts = rule[:opts]
       next if opts[:disabled]
       replacement = opts[:replacement]
       if replacement.class == Proc

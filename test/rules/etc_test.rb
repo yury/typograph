@@ -1,5 +1,5 @@
 require "test/unit"
-require "../../lib/tof/etc"
+require "../../lib/rules/etc"
 
 class EtcTest < Test::Unit::TestCase
 
