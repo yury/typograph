@@ -1,4 +1,3 @@
-#kcode utf-8
 require "test/unit"
 require File.dirname(__FILE__) + '/../../lib/rules/punchmark_rules'
 
