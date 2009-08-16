@@ -1,5 +1,5 @@
 require "test/unit"
-require File.dirname(__FILE__) + '/../../lib/rules/math_rules'
+require File.expand_path(File.dirname(__FILE__) + '/../../lib/typograph')
 
 class MathRulesTest < Test::Unit::TestCase
 

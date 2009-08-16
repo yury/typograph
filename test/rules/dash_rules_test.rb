@@ -1,5 +1,6 @@
 require "test/unit"
-require File.dirname(__FILE__) + '/../../lib/rules/dash_rules'
+
+require File.expand_path(File.dirname(__FILE__) + '/../../lib/typograph')
 
 class DashRulesTest < Test::Unit::TestCase
 

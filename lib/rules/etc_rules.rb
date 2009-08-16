@@ -1,10 +1,9 @@
-require File.join(File.dirname(__FILE__), '..', 'rule')
+require File.expand_path(File.join(File.dirname(__FILE__), '..', 'rule'))
 
 class EtcRules < Rule
 
-  def initialize text
-    super text
-
+  def initialize
+    super
     add :tm_replace,
         :pattern => /([\040\t])?\(tm\)/i,
         :replacement => '&trade;'

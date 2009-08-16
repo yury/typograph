@@ -1,9 +1,10 @@
-require File.join(File.dirname(__FILE__), '..', 'rule')
+require File.expand_path(File.join(File.dirname(__FILE__), '..', 'rule'))
 
 class DashRules < Rule
 
-  def initialize text
-    super text
+  def initialize
+    super
+    
     add :m_dash,
         :pattern => /([a-zа-я0-9]+|,|:|\)|&raquo;|\|")(\040|\t)(\-|&mdash;)(\s|$|<)/u,
         :replacement => '\1&nbsp;&mdash;\4'

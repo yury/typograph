@@ -1,9 +1,9 @@
-require File.join(File.dirname(__FILE__), '..', 'rule')
+require File.expand_path(File.join(File.dirname(__FILE__), '..', 'rule'))
 
 class MathRules < Rule
 
-  def initialize text
-    super text
+  def initialize
+    super
 
     add :auto_times_x,
         :pattern => /(\d+)(\040*)(x|х)(\040*)(\d+)/u,

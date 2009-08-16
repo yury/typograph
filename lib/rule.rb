@@ -1,5 +1,4 @@
-require File.dirname(__FILE__) + '/tool'
-
+require File.join(File.dirname(__FILE__), 'tool')
 # base class for all rules in typograph
 class Rule
 
@@ -7,8 +6,7 @@ class Rule
 
   attr_accessor :text, :disabled
 
-  def initialize text
-    @text = text
+  def initialize
     @disabled = false
     @rules = []
   end
@@ -45,7 +43,8 @@ class Rule
   end
 
   def self.run text
-    t = self.new text
+    t = self.new
+    t.text = text
     t.parse
   end
   

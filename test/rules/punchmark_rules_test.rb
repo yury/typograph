@@ -1,5 +1,5 @@
 require "test/unit"
-require File.dirname(__FILE__) + '/../../lib/rules/punchmark_rules'
+require File.expand_path(File.dirname(__FILE__) + '/../../lib/typograph')
 
 class PunchmarkRulesTest < Test::Unit::TestCase
 

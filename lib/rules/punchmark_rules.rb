@@ -1,10 +1,10 @@
-require File.join(File.dirname(__FILE__), '..', 'rule')
+require File.expand_path(File.join(File.dirname(__FILE__), '..', 'rule'))
 
 class PunchmarkRules < Rule
 
-  def initialize text
-    super text
-
+  def initialize
+    super
+    
     add :auto_comma,
         :pattern => /([a-zа-я])(\s|&nbsp;)(но|а)(\s|&nbsp;)/iu,
         :replacement =>  '\1,\2\3\4'
