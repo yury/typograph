@@ -9,8 +9,8 @@ module Typograph
 
   def self.run text
     for rule in @@rules
-      rule.text = text
-      text = rule.parse
+      next if rule.disabled
+      text = rule.parse text
     end
     text
   end
