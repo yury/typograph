@@ -3,11 +3,6 @@ module Typograph
 
     class QuoteRules < Rule
 
-      QUOTE_FIRS_OPEN = '&laquo;';
-      QUOTE_FIRS_CLOSE = '&raquo;';
-      QUOTE_CRAWSE_OPEN = '&bdquo;';
-      QUOTE_CRAWSE_CLOSE = '&ldquo;';
-
       def initialize
         super
 

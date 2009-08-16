@@ -11,8 +11,12 @@ module Typograph
     class Rule
 
       NBSP = "&nbsp;"
+      QUOTE_FIRS_OPEN = '&laquo;';
+      QUOTE_FIRS_CLOSE = '&raquo;';
+      QUOTE_CRAWSE_OPEN = '&bdquo;';
+      QUOTE_CRAWSE_CLOSE = '&ldquo;';
 
-      attr_accessor :text, :disabled
+      attr_accessor :disabled
 
       def initialize
         @disabled = false
@@ -23,37 +27,36 @@ module Typograph
         @rules << {:name => name, :opts => opts}
       end
 
-      def pre_parse
-
+      def pre_parse text
+        text
       end
 
-      def parse
-        return self.text if self.disabled
+      def post_parse text
+        text
+      end
 
-        self.pre_parse
+      def parse text
+        return text if self.disabled
+
+        text = self.pre_parse text
 
         @rules.each do |rule|
           opts = rule[:opts]
           next if opts[:disabled]
           replacement = opts[:replacement]
           if replacement.class == Proc
-            self.text.sub_each! opts[:pattern], &replacement
+            text.sub_each! opts[:pattern], &replacement
           else
-            self.text.gsub! opts[:pattern], opts[:replacement]
+            text.gsub! opts[:pattern], opts[:replacement]
           end
         end
 
-        self.text
-      end
-
-      def post_parse
-
+        self.post_parse text
       end
 
       def self.run text
         t = self.new
-        t.text = text
-        t.parse
+        t.parse text
       end
 
     end
