@@ -68,4 +68,8 @@ class TypographTest < Test::Unit::TestCase
     assert_equal "привет всем &laquo;крутым&raquo; штукам", QuoteRules.run("привет всем \"крутым\" штукам")
   end
 
+  def test_complex_processing
+    assert_equal "sdf", Typograph.run("sdf")
+  end
+
 end
