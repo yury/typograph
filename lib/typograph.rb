@@ -1,13 +1,11 @@
-require File.join(File.dirname(__FILE__), 'rule')
-require File.join(File.dirname(__FILE__), 'rules', 'dash_rules')
-require File.join(File.dirname(__FILE__), 'rules', 'etc_rules')
-require File.join(File.dirname(__FILE__), 'rules', 'math_rules')
-require File.join(File.dirname(__FILE__), 'rules', 'punchmark_rules')
-require File.join(File.dirname(__FILE__), 'rules', 'quote_rules')
+module Typograph
+  autoload :Rules, 'typograph/rules'
 
-class Typograph
-
-  @@rules = [QuoteRules.new, DashRules.new, PunchmarkRules.new, MathRules.new, EtcRules.new]
+  @@rules = [Rules::QuoteRules.new,
+             Rules::DashRules.new,
+             Rules::PunchmarkRules.new,
+             Rules::MathRules.new,
+             Rules::EtcRules.new] 
 
   def self.run text
     for rule in @@rules
@@ -17,3 +15,5 @@ class Typograph
     text
   end
 end
+
+require 'typograph/string_sub_each'
