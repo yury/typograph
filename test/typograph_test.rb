@@ -63,14 +63,13 @@ class TypographTest < Test::Unit::TestCase
   end
 
   def test_quote_rules
-    assert_equal "&laquo;как-то&raquo;", QuoteRules.run("\"как-то\"")
-    assert_equal "&laquo;как-то&raquo; &laquo;как-то&raquo;", QuoteRules.run("\"как-то\" \"как-то\"")
-    assert_equal "привет всем &laquo;крутым&raquo; штукам", QuoteRules.run("привет всем \"крутым\" штукам")
+    assert_equal "&laquo;как-то&raquo;", QuoteRules.run('"как-то"')
+    assert_equal "&laquo;как-то&raquo; &laquo;как-то&raquo;", QuoteRules.run('"как-то" "как-то"')
+    assert_equal "привет всем &laquo;крутым&raquo; штукам", QuoteRules.run('привет всем "крутым" штукам')
+    assert_equal "&laquo;как-то &laquo;как-то&raquo;", QuoteRules.run('"как-то "как-то""')
   end
 
   def test_complex_processing
-    assert_equal "sdf", Typograph.run("sdf")
-
     src = '"Кока-Кола" впервые появилась в СССР в 1979 году в
     ходе подготовки Олимпийских игр в Москве. Её автор -
     фармацевт Джон Стит Пембертон, бывший офицер американской
