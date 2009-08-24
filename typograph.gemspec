@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{typograph}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Yury Korolev"]
-  s.date = %q{2009-08-17}
+  s.date = %q{2009-08-25}
   s.description = %q{apply some basic typography rules to text}
   s.email = %q{yury.korolev@gmail.com}
   s.extra_rdoc_files = [
@@ -28,7 +28,8 @@ Gem::Specification.new do |s|
      "lib/typograph/rules/punchmark_rules.rb",
      "lib/typograph/rules/quote_rules.rb",
      "lib/typograph/string_sub_each.rb",
-     "test/typograph_test.rb"
+     "test/typograph_test.rb",
+     "typograph.gemspec"
   ]
   s.homepage = %q{http://github.com/yury/typograph}
   s.rdoc_options = ["--charset=UTF-8"]

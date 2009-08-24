@@ -1,10 +1,10 @@
 require "strscan"
 
 class String
-  def sub_each regex, &block
+  def sub_each regexp, &block
     return unless block_given?
     scanner = StringScanner.new self
-    while scanner.scan(regex)
+    while scanner.scan(regexp)
       pre_match = scanner.pre_match
       replacement = block[scanner]
       new_pos = pre_match.length + replacement.length
@@ -14,7 +14,7 @@ class String
     scanner.string
   end
 
-  def sub_each! regex, &block
-    self.replace(self.sub_each(regex, &block))
+  def sub_each! regexp, &block
+    self.replace(self.sub_each(regexp, &block))
   end
 end
