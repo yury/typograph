@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module Typograph
   module Rules
 
@@ -7,7 +9,7 @@ module Typograph
         super
 
         add :m_dash,
-            :pattern => /([a-zа-я0-9]+|,|:|\)|&raquo;|\|")(\040|\t)(\-|&mdash;)(\s|$|<)/u,
+            :pattern => /([a-zа-я0-9]+|,|:|\)|&raquo;|\|")(\040|\t)(\-|&mdash;)(\s|$|<)/,
             :replacement => '\1&nbsp;&mdash;\4'
 
         add :m_dash_2,
@@ -19,15 +21,15 @@ module Typograph
             :replacement => '\1 &mdash;&nbsp;'
 
         add :years,
-            :pattern => /(с|по|период|середины|начала|начало|конца|конец|половины|в|между)(\s+|&nbsp;)([\d]{4})(-)([\d]{4})(г|гг)?/eui,
+            :pattern => /(с|по|период|середины|начала|начало|конца|конец|половины|в|между)(\s+|&nbsp;)([\d]{4})(-)([\d]{4})(г|гг)?/i,
             :replacement => lambda {|m| "#{m[1]}#{m[2]}#{build_years(m[3],m[5],m[4])}#{m[6]}"  }
 
         add :iz_za_pod,
-            :pattern => /(\s|&nbsp;|>)(из)(\040|\t|&nbsp;)\-?(за|под)([\.,!\?:;]|\040|&nbsp;)/uie,
+            :pattern => /(\s|&nbsp;|>)(из)(\040|\t|&nbsp;)\-?(за|под)([\.,!\?:;]|\040|&nbsp;)/i,
             :replacement => lambda {|m| "#{m[1] == NBSP ? " " : m[1]}#{m[2]}-#{m[4]}#{m[5] == NBSP ? " " : m[5]}" }
 
         add :to_libo_nibud,
-            :pattern => /(\s|^|&nbsp;|>)(кто|кем|когда|зачем|почему|как|что|чем|где|чего|кого)\-?(\040|\t|&nbsp;)\-?(то|либо|нибудь)([\.,!?;]|\040|&nbsp;|$)/ui,
+            :pattern => /(\s|^|&nbsp;|>)(кто|кем|когда|зачем|почему|как|что|чем|где|чего|кого)\-?(\040|\t|&nbsp;)\-?(то|либо|нибудь)([\.,!?;]|\040|&nbsp;|$)/i,
             :replacement => lambda {|m| "#{m[1] == NBSP ? " " : m[1]}#{m[2]}-#{m[4]}#{m[5] == NBSP ? " " : m[5]}" }
       end
 
