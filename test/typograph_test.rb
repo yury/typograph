@@ -1,9 +1,13 @@
+# encoding: utf-8
+
 $:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 
-require "test/unit"
+require "minitest/unit"
 require "typograph"
 
-class TypographTest < Test::Unit::TestCase
+MiniTest::Unit.autorun
+
+class TypographTest < MiniTest::Unit::TestCase
 
   include Typograph
   include Typograph::Rules
