@@ -1,3 +1,8 @@
+if RUBY_VERSION < "1.9"
+  $KCODE='u'
+end
+
+
 module Typograph
   autoload :Rules, 'typograph/rules'
 

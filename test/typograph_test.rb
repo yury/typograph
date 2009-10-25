@@ -4,7 +4,6 @@ $:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 
 if RUBY_VERSION < "1.9"
   require "rubygems"
-  $KCODE='u'
 end
 
 require "minitest/unit"
