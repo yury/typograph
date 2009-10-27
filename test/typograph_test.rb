@@ -2,9 +2,7 @@
 
 $:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 
-if RUBY_VERSION < "1.9"
-  require "rubygems"
-end
+require "rubygems" if RUBY_VERSION < "1.9"
 
 require "minitest/unit"
 require "typograph"
